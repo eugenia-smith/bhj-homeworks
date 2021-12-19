@@ -4,14 +4,15 @@ let clickCounter = document.getElementById('clicker__counter');
 let counter = 0;
 
 
-//console.log(clickCounter.textContent);
 function countClicks() {
     bisquit.width = 250;
 
-    counter ++;
-    console.log(counter);
+    counter++;
     clickCounter.textContent = counter;
+
+    if (counter % 2) {
+        bisquit.width = 200
+    }
 
 }
 bisquit.onclick = countClicks;
-
