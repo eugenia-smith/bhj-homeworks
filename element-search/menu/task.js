@@ -14,7 +14,7 @@ for (let i = 0; i < menuLink.length; i++) {
             //console.log(subMenu);
 
         } else {
-            subMenu.classList.remove('menu_active');
+            return true;
 
         }
 
