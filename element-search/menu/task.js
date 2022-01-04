@@ -12,8 +12,9 @@ for (let i = 0; i < menuLink.length; i++) {
             subMenu.classList.toggle('menu_active');
 
         } else {
-            console.log('reload');
+            //console.log('reload');
             return true;
+
         }
 
         return false;
