@@ -1,10 +1,5 @@
 'use strict';
 
-//let advertisingArr = document.getElementsByClassName('rotator__case');
-//let activeElement = document.querySelector('.rotator__case_active');
-//let rotatorBox = document.querySelector('.rotator');
-// let advertising = document.querySelector('.rotator__case');
-
 let rotateAdvs = function () {
     let activeElement = document.querySelector('.rotator__case_active');
     let rotatorBox = document.querySelector('.rotator');
@@ -19,6 +14,4 @@ let rotateAdvs = function () {
 }
 
 setInterval(rotateAdvs, 1000);
-
-
 
