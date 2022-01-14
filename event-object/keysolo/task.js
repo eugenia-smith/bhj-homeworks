@@ -16,22 +16,23 @@ class Game {
     this.lossElement.textContent = 0;
   }
 
-  registerEvents(event) {
-    /*
-      TODO:
-      Написать обработчик события, который откликается
-      на каждый введённый символ.
-      В случае правильного ввода слова вызываем this.success()
-      При неправильном вводе символа - this.fail();
-     */
-      // if (event === this.currentSymbol.textContent) {
-      //   this.success()
-      // } else {
-      //   this.fail()
-      // }
-    
-    // document.addEventListener('keyup', console.log(event.code));
-    
+  registerEvents() {
+
+    let gameObject = this;
+
+    document.addEventListener('keydown', function (event) {
+      let letter = gameObject.currentSymbol.textContent;
+
+      if (event.key === 'Alt' || event.key === 'Shift' || event.key === 'Control') {
+        return;
+      } else if (event.key.toLowerCase() === letter) {
+        //console.log('this symbol')
+        gameObject.success();
+      } else {
+        //console.log('not this symbol')
+        gameObject.fail();
+      }
+    });
   }
 
   success() {
@@ -94,5 +95,5 @@ class Game {
   }
 }
 
-new Game(document.getElementById('game'))
+new Game(document.getElementById('game'));
 
