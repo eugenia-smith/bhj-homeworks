@@ -30,13 +30,24 @@ for (let i = 0; i < quantityControls.length; i++) {
 for (let btn of productAdd) {
 
     btn.onclick = function () {
-        let goodInCart = document.createElement('div');
-        goodInCart.innerHTML = '<div class="cart__product" data-id="1"> <img class="cart__product-image" src="image.png"> <div class="cart__product-count">20</div></div>'
 
-        cartProducts.insertAdjacentElement('afterbegin', goodInCart);
+        let good = this.closest('.product');
+        let goodId = good.dataset.id;
+        let goodImg = good.querySelector('.product__image').getAttribute('src');
+        let goodQnty = good.querySelector('.product__quantity-value').textContent;
 
-        console.log(goodInCart, 'good added');
-        console.log(cartProducts);
+
+
+        if ((cartProducts.querySelector(`div[data-id="${goodId}"]`)) == null) {
+
+            let goodInCart = document.createElement('div');
+            goodInCart.innerHTML = `<div class="cart__product" data-id="${goodId}"> <img class="cart__product-image" src="${goodImg}"> <div class="cart__product-count">${goodQnty}</div></div>`
+            cartProducts.insertAdjacentElement('afterbegin', goodInCart);
+
+        } else {
+            
+        };
+
     }
 }
 
