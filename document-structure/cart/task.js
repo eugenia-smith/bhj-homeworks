@@ -45,7 +45,8 @@ for (let btn of productAdd) {
             cartProducts.insertAdjacentElement('afterbegin', goodInCart);
 
         } else {
-            
+            let newQnty = +cartProducts.querySelector(`div[data-id="${goodId}"]`).querySelector('.cart__product-count').innerText + +goodQnty;
+            cartProducts.querySelector(`div[data-id="${goodId}"]`).querySelector('.cart__product-count').innerText = newQnty;
         };
 
     }
