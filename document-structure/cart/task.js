@@ -36,19 +36,19 @@ for (let btn of productAdd) {
         let goodImg = good.querySelector('.product__image').getAttribute('src');
         let goodQnty = good.querySelector('.product__quantity-value').textContent;
 
+        if (goodQnty > 0) {
 
+            if ((cartProducts.querySelector(`div[data-id="${goodId}"]`)) == null) {
 
-        if ((cartProducts.querySelector(`div[data-id="${goodId}"]`)) == null) {
+                let goodInCart = document.createElement('div');
+                goodInCart.innerHTML = `<div class="cart__product" data-id="${goodId}"> <img class="cart__product-image" src="${goodImg}"> <div class="cart__product-count">${goodQnty}</div></div>`
+                cartProducts.insertAdjacentElement('afterbegin', goodInCart);
 
-            let goodInCart = document.createElement('div');
-            goodInCart.innerHTML = `<div class="cart__product" data-id="${goodId}"> <img class="cart__product-image" src="${goodImg}"> <div class="cart__product-count">${goodQnty}</div></div>`
-            cartProducts.insertAdjacentElement('afterbegin', goodInCart);
-
-        } else {
-            let newQnty = +cartProducts.querySelector(`div[data-id="${goodId}"]`).querySelector('.cart__product-count').innerText + +goodQnty;
-            cartProducts.querySelector(`div[data-id="${goodId}"]`).querySelector('.cart__product-count').innerText = newQnty;
-        };
-
+            } else {
+                let newQnty = +cartProducts.querySelector(`div[data-id="${goodId}"]`).querySelector('.cart__product-count').innerText + +goodQnty;
+                cartProducts.querySelector(`div[data-id="${goodId}"]`).querySelector('.cart__product-count').innerText = newQnty;
+            };
+        }
     }
 }
 
